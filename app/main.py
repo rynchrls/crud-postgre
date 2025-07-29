@@ -28,11 +28,9 @@ app.add_middleware(
 # ✅ CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # Frontend dev client
-    ],
+    allow_origins=["*"],  # ✅ TEMPORARY: Allow all origins
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS", "PUT"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
