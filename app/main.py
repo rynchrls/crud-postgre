@@ -2,7 +2,6 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.middleware.trustedhost import TrustedHostMiddleware
 from .models import user as User, blog as Blog  # Import your database models
 from .db.session import engine
 from app.api.v1 import user, blog  # Import your route module
@@ -20,10 +19,10 @@ app = FastAPI(
 )
 
 # ✅ Security best practice: Optional Trusted Host Middleware
-app.add_middleware(
-    TrustedHostMiddleware,
-    allowed_hosts=["localhost", "127.0.0.1", "*.yourdomain.com"],
-)
+# app.add_middleware(
+#     TrustedHostMiddleware,
+#     allowed_hosts=["localhost", "127.0.0.1", "*.yourdomain.com"],
+# )
 
 # ✅ CORS middleware
 app.add_middleware(
